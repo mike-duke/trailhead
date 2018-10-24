@@ -6,11 +6,10 @@ import './styles/Card.css';
 export default class Card extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
-    this.trailName = props.trailName;
-    this.parkName = props.parkName;
-    this.difficultyRating = props.difficultyRating;
-    this.distanceRoundtripMiles = props.distanceRoundtripMiles
+    this.trailName = props.trail.trailName;
+    this.parkName = props.trail.parkName;
+    this.difficultyRating = props.trail.difficultyRating;
+    this.distanceRoundtripMiles = props.trail.distanceRoundtripMiles
       this.state = {
         fullCard: false
       }
@@ -19,10 +18,12 @@ export default class Card extends Component {
   render(){
     return (
       <div className="card">
-      <h1>{this.trailName}</h1>
-      <h2>{this.parkName}</h2>
-        <p>{this.difficultyRating}</p>
-        <p>{this.distanceRoundtripMiles}</p>
+      <h1>Trail Name: {this.trailName}</h1>
+      <h2>Park Name: {this.parkName}</h2>
+        <div class="side-items">
+          <div class="difficulty-rating"><p>Difficulty Rating: {this.difficultyRating}</p></div>
+          <div class="distance-roundtrip"><p>Distance Roundtrip: {this.distanceRoundtripMiles}</p></div>
+        </div>
       </div>
     )
   }

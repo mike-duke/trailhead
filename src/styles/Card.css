@@ -1,5 +1,22 @@
 .card {
-  background-color: blue;
-  height: 100px;
-  width: 100px;
+  background-color: #228B22;
+  height: 200px;
+  width: 800px;
+  border: solid 2px black;
+  margin: auto;
+}
+
+
+.side-items {
+  display: flex;
+  justify-content: space-between;
+}
+
+.distance-roundtrip {
+  
+}
+
+
+.diffulty-rating {
+
 }
