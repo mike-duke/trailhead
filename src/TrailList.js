@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Card from './Card.js'
+import Card from './Card.js';
+import './styles/TrailList.css';
 
 
 
@@ -9,7 +10,12 @@ export default class TrailList extends Component {
   }
   render(){
     return (
-      <p>TrailList</p>
+      <div className="trail-list">
+        {this.props.trails.map((trail) => {
+          return <Card trail={trail}/>
+        })
+      }
+      </div>
     )
   }
 }
