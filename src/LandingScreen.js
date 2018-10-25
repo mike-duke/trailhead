@@ -12,6 +12,7 @@ export default class LandingScreen extends Component {
     return (
       <div className="landing-screen">
         
+        <h1>Trailhead</h1>
         <select className="location-select">{this.props.parks.reduce((locationArr, location) => {
           if (!locationArr.includes(location.usState)){
             locationArr.push(location.usState)
@@ -23,7 +24,7 @@ export default class LandingScreen extends Component {
       }
 
         </select>
-        <button className="submit-button">Chose your hike</button>
+        <button className="submit-button">CHOSE A LOCATION</button>
       </div>
     )
   }
