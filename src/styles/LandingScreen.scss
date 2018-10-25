@@ -1,0 +1,28 @@
+
+
+.landing-screen {
+  background-color: rgba(255,255,255,0.7);
+  height: 200px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 25px;
+  flex-direction: column;
+
+}
+
+
+.location-select {
+  width: 100px;
+  height: 25px;
+}
+
+.submit-button {
+  height: 40px;
+  border-radius: 10px;
+  font-weight: 700;
+  background-color: #228B22;
+  border: solid black;
+  color: white;
+}
