@@ -34,7 +34,7 @@ class App extends Component {
     .catch(error => console.log(error))  
   }
 
-  getTrails() {
+  getTrails = () => {
   fetch('https://whateverly-datasets.herokuapp.com/api/v1/trails')
     .then(response => response.json())
     .then(trailData => {
@@ -45,23 +45,26 @@ class App extends Component {
     .catch(error => console.log(error))
   }
 
-  toggleLandingScreen() {
+  toggleLandingScreen = () => {
     this.setState({
       landingScreen: false
     })
   }
 
   render() {
+    console.log(this.state.trailData)
     if (this.state.landingScreen) {
       return (
         <div className="App">
-          <LandingScreen parks={this.state.parkData.nationalParks}/>
+          <LandingScreen parks={this.state.parkData.nationalParks}
+          toggleLandingScreen={this.toggleLandingScreen}
+          getTrails={this.getTrails}/>
+
         </div>
         )
     } else {
       return (
       <div className="App">
-        <h1>TrailHead</h1>
         <Header />
         <TrailList trails={this.state.trailData.trails}/>
 
