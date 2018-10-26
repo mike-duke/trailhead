@@ -1,4 +1,4 @@
 # trailhead
 
 Wireframe:
-![Wireframe](https://i.imgur.com/xl1N5tD.png "Wireframe")
+![Wireframe](https://i.imgur.com/uoF51ja.png "Wireframe")
