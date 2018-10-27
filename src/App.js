@@ -20,8 +20,10 @@ class App extends Component {
         trailData: {
           trails: [],
         },
-        foundTrail: {}
+        foundTrails: [],
+        trailsByPark: []
       }
+
     }
 
   componentDidMount() {
@@ -33,9 +35,7 @@ class App extends Component {
       })
     })
     .catch(error => console.log(error))  
-  }
-
-  getTrails = () => {
+ 
   fetch('https://whateverly-datasets.herokuapp.com/api/v1/trails')
     .then(response => response.json())
     .then(trailData => {
@@ -43,7 +43,7 @@ class App extends Component {
         trailData: trailData
       })
     })
-    .catch(error => console.log(error))
+    .catch(error => console.log(error));
   }
 
   toggleLandingScreen = () => {
@@ -52,14 +52,41 @@ class App extends Component {
     })
   }
 
+  getTrailsByLocation = (location) => {
+    const parksByLocation = this.state.parkData.nationalParks.filter((park) => {
+      return park.usState === location;
+    })
+
+    console.log(parksByLocation);
+    const trailsByPark = this.state.trailData.trails.reduce((trailsArr, trail) => {
+      parksByLocation.forEach((park) => {
+        if(park.parkName === trail.parkName) {
+          trailsArr.push(trail)
+        }
+      })
+
+    return trailsArr;
+    }, [])
+
+    this.setState({
+      trailData: {
+          trails: trailsByPark,
+        }
+    })
+  }
+
   searchTrails = (searchInput) => {
-    let foundTrail = this.state.trailData.trails.find((trail) => {
+    let foundTrails = this.state.trailData.trails.filter((trail) => {
       return trail.trailName.toLowerCase().includes(searchInput);
     })
     this.setState({
-      foundTrail: foundTrail
+      trailData: {
+          trails: foundTrails,
+        }
     })
   }
+
+  //take trail data and filter the trails by the usState (location) and then pass that array into trailList
 
   render() {
     if (this.state.landingScreen) {
@@ -67,7 +94,7 @@ class App extends Component {
         <div className="App">
           <LandingScreen parks={this.state.parkData.nationalParks}
           toggleLandingScreen={this.toggleLandingScreen}
-          getTrails={this.getTrails}/>
+          getTrailsByLocation={this.getTrailsByLocation}/>
 
         </div>
         )
@@ -76,7 +103,7 @@ class App extends Component {
       <div className="App">
         <Header searchTrails={this.searchTrails} />
         <TrailList trails={this.state.trailData.trails} 
-                    foundTrail={this.state.foundTrail} />
+                    foundTrails={this.state.foundTrails} />
 
       </div>
     
