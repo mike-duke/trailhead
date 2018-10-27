@@ -6,6 +6,7 @@ import Header from './Header.js';
 import Search from './Search.js'
 import LocationDisplay from './LocationDisplay.js';
 import LandingScreen from './LandingScreen.js';
+import Controls from './Controls.js';
 
 
 
@@ -87,7 +88,6 @@ class App extends Component {
     })
   }
 
-  //take trail data and filter the trails by the usState (location) and then pass that array into trailList
 
   render() {
     if (this.state.landingScreen) {
@@ -102,10 +102,14 @@ class App extends Component {
     } else {
       return (
       <div className="App">
-        <Header searchTrails={this.searchTrails} />
-        <LocationDisplay location={this.state.selectedLocation}/>
-        <TrailList trails={this.state.trailData.trails} 
+        {/*<Header searchTrails={this.searchTrails} />*/}
+        <div className="side-panel">
+          <LocationDisplay location={this.state.selectedLocation}/>
+          <Controls searchTrails={this.searchTrails}/>
+        </div>  
+          <TrailList trails={this.state.trailData.trails} 
                     foundTrails={this.state.foundTrails} />
+
 
       </div>
     
