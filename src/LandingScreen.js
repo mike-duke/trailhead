@@ -24,8 +24,8 @@ export default class LandingScreen extends Component {
               locationArr.push(location.usState)
             }
             return locationArr; 
-          }, []).map((usState) => {
-            return <option value={usState}>{usState}</option>
+          }, []).map((usState, index) => {
+            return <option key={index} value={usState}>{usState}</option>
           })
         }
 

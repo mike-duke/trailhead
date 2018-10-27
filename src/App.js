@@ -19,7 +19,8 @@ class App extends Component {
         },
         trailData: {
           trails: [],
-        }
+        },
+        foundTrail: {}
       }
     }
 
@@ -51,8 +52,16 @@ class App extends Component {
     })
   }
 
+  searchTrails = (searchInput) => {
+    let foundTrail = this.state.trailData.trails.find((trail) => {
+      return trail.trailName.toLowerCase().includes(searchInput);
+    })
+    this.setState({
+      foundTrail: foundTrail
+    })
+  }
+
   render() {
-    console.log(this.state.trailData)
     if (this.state.landingScreen) {
       return (
         <div className="App">
@@ -65,8 +74,9 @@ class App extends Component {
     } else {
       return (
       <div className="App">
-        <Header />
-        <TrailList trails={this.state.trailData.trails}/>
+        <Header searchTrails={this.searchTrails} />
+        <TrailList trails={this.state.trailData.trails} 
+                    foundTrail={this.state.foundTrail} />
 
       </div>
     

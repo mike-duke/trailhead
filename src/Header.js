@@ -13,7 +13,7 @@ export default class Header extends Component {
       <header>
         <div className="hiking-icon"><i className="fas fa-hiking"></i></div>
         <h1>TrailHead</h1>
-        <Search />
+        <Search searchTrails={this.props.searchTrails} />
         <button className="reset-search-button">Start Over</button>
       </header>
     )
