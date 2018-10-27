@@ -6,11 +6,21 @@ import './styles/LandingScreen.scss';
 export default class LandingScreen extends Component {
   constructor() {
     super();
+      this.state = {
+        selectedLocation: ''
+      }
+  }
+
+  updateSelectedLocation = (event) => {
+    this.setState ( {
+      selectedLocation: event.target.value
+    })
+    console.log(event.target.value)
   }
 
   displayTrailsByLocation = () => {
     this.props.toggleLandingScreen();
-    this.props.getTrails();
+    this.props.getTrailsByLocation(this.state.selectedLocation);
   }
 
   render() {
@@ -19,7 +29,9 @@ export default class LandingScreen extends Component {
         <div className="landing-screen">
           
           <h1>Trailhead</h1>
-          <select className="location-select">{this.props.parks.reduce((locationArr, location) => {
+          <select onChange={this.updateSelectedLocation} className="location-select">
+          <option>Select a state</option>
+          {this.props.parks.reduce((locationArr, location) => {
             if (!locationArr.includes(location.usState)){
               locationArr.push(location.usState)
             }
