@@ -11,8 +11,8 @@ export default class TrailList extends Component {
   render(){
     return (
       <div className="trail-list">
-        {this.props.trails.map((trail) => {
-          return <Card trail={trail}/>
+        {this.props.trails.map((trail, index) => {
+          return <Card key={index} trail={trail} />
         })
       }
       </div>
