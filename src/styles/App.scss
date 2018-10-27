@@ -3,7 +3,11 @@
 .App {
   background-image: url('images/landingscreen.jpg');
   background-size: cover;
-  
+  // display: grid;
+  // grid-template-areas:
+  // "header header header header"
+  // "location-display trail-list trail-list ."
+  // "controls trail-list trail-list .";
 }
 
 

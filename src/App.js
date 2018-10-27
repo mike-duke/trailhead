@@ -21,7 +21,8 @@ class App extends Component {
           trails: [],
         },
         foundTrails: [],
-        trailsByPark: []
+        trailsByPark: [],
+        selectedLocation: ''
       }
 
     }
@@ -56,8 +57,6 @@ class App extends Component {
     const parksByLocation = this.state.parkData.nationalParks.filter((park) => {
       return park.usState === location;
     })
-
-    console.log(parksByLocation);
     const trailsByPark = this.state.trailData.trails.reduce((trailsArr, trail) => {
       parksByLocation.forEach((park) => {
         if(park.parkName === trail.parkName) {
@@ -67,11 +66,13 @@ class App extends Component {
 
     return trailsArr;
     }, [])
-
+    console.log(location);
+    console.log(trailsByPark)
     this.setState({
       trailData: {
-          trails: trailsByPark,
-        }
+        trails: trailsByPark,
+      },
+      selectedLocation: location,
     })
   }
 
@@ -102,6 +103,7 @@ class App extends Component {
       return (
       <div className="App">
         <Header searchTrails={this.searchTrails} />
+        <LocationDisplay location={this.state.selectedLocation}/>
         <TrailList trails={this.state.trailData.trails} 
                     foundTrails={this.state.foundTrails} />
 

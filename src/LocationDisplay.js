@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './styles/LocationDisplay.scss';
 
 
 export default class LocationDisplay extends Component {
@@ -8,10 +9,10 @@ export default class LocationDisplay extends Component {
 
 
   render(){
+    console.log('Location', this.props.location);
     return (
-
       <div className="location-display">
-        <h1></h1>
+        <h1>{this.props.location}</h1>
       </div>
     )
   }
