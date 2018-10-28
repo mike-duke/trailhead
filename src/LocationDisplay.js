@@ -9,7 +9,6 @@ export default class LocationDisplay extends Component {
 
 
   render(){
-    console.log('Location', this.props.location);
     return (
       <div className="location-display">
         <h1>{this.props.location}</h1>

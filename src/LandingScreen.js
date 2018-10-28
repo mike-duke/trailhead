@@ -15,7 +15,6 @@ export default class LandingScreen extends Component {
     this.setState ( {
       selectedLocation: event.target.value
     })
-    console.log(event.target.value)
   }
 
   displayTrailsByLocation = () => {

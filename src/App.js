@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, {
+  Component
+} from 'react';
 import logo from './logo.svg';
 import './styles/App.scss';
 import TrailList from './TrailList.js';
@@ -13,39 +15,36 @@ import Controls from './Controls.js';
 class App extends Component {
   constructor() {
     super();
-      this.state = {
-        landingScreen: true,
-        parkData: {
-          nationalParks: [],
-        },
-        trailData: {
-          trails: [],
-        },
-        foundTrails: [],
-        trailsByPark: [],
-        selectedLocation: ''
-      }
-
+    this.state = {
+      landingScreen: true,
+      parkData: {
+        nationalParks: [],
+      },
+      trailData: {
+        trails: [],
+      },
+      selectedLocation: ''
     }
+  }
 
   componentDidMount() {
-   fetch('https://whateverly-datasets.herokuapp.com/api/v1/nationalParks')
-    .then(response => response.json())
-    .then(parkData => {
-      this.setState( {
-        parkData: parkData
+    fetch('https://whateverly-datasets.herokuapp.com/api/v1/nationalParks')
+      .then(response => response.json())
+      .then(parkData => {
+        this.setState({
+          parkData: parkData
+        })
       })
-    })
-    .catch(error => console.log(error))  
- 
-  fetch('https://whateverly-datasets.herokuapp.com/api/v1/trails')
-    .then(response => response.json())
-    .then(trailData => {
-      this.setState( {
-        trailData: trailData
+      .catch(error => console.log(error))
+
+    fetch('https://whateverly-datasets.herokuapp.com/api/v1/trails')
+      .then(response => response.json())
+      .then(trailData => {
+        this.setState({
+          trailData: trailData
+        })
       })
-    })
-    .catch(error => console.log(error));
+      .catch(error => console.log(error));
   }
 
   toggleLandingScreen = () => {
@@ -55,25 +54,24 @@ class App extends Component {
   }
 
   getTrailsByLocation = (location) => {
-    const parksByLocation = this.state.parkData.nationalParks.filter((park) => {
-      return park.usState === location;
-    })
-    const trailsByPark = this.state.trailData.trails.reduce((trailsArr, trail) => {
-      parksByLocation.forEach((park) => {
-        if(park.parkName === trail.parkName) {
-          trailsArr.push(trail)
-        }
-      })
+      const parksByLocation = this.state.parkData.nationalParks.filter((park) => {
+        return park.usState === location;
+      });
 
-    return trailsArr;
-    }, [])
-    console.log(location);
-    console.log(trailsByPark)
+      const trailsByPark = this.state.trailData.trails.reduce((trailsArr, trail) => {
+        parksByLocation.forEach((park) => {
+          if (park.parkName === trail.parkName) {
+            trailsArr.push(trail);
+          }
+        });
+        return trailsArr;
+      }, []);
+
     this.setState({
       trailData: {
-        trails: trailsByPark,
+        trails: trailsByPark
       },
-      selectedLocation: location,
+      selectedLocation: location
     })
   }
 
@@ -83,36 +81,54 @@ class App extends Component {
     })
     this.setState({
       trailData: {
-          trails: foundTrails,
-        }
+        trails: foundTrails
+      }
+    })
+  }
+
+  filterByDistance = (distance) => {
+    let trailByDistance = this.state.trailData.trails.filter((trail) => {
+      return trail.distanceRoundtripMiles === parseInt(distance);
+    })
+    this.setState({
+      trailData: {
+        trails: trailByDistance
+      }
+    })
+  }
+
+  resetLandingScreen = () => {
+    this.setState({
+      landingScreen: true
     })
   }
 
 
   render() {
+    console.log(this.state.trailData.trails)
+    console.log(this.state.parkData.nationalParksparks)
     if (this.state.landingScreen) {
-      return (
-        <div className="App">
-          <LandingScreen parks={this.state.parkData.nationalParks}
-          toggleLandingScreen={this.toggleLandingScreen}
-          getTrailsByLocation={this.getTrailsByLocation}/>
-
+      return ( 
+        <div className = "App" >
+          <LandingScreen parks = {this.state.parkData.nationalParks} 
+                        toggleLandingScreen = {this.toggleLandingScreen} 
+                        getTrailsByLocation = {this.getTrailsByLocation} />
         </div>
-        )
+      )
     } else {
-      return (
-      <div className="App">
-        {/*<Header searchTrails={this.searchTrails} />*/}
-        <div className="side-panel">
-          <LocationDisplay location={this.state.selectedLocation}/>
-          <Controls searchTrails={this.searchTrails}/>
-        </div>  
-          <TrailList trails={this.state.trailData.trails} 
-                    foundTrails={this.state.foundTrails} />
+      return ( 
+        <div className = "App" > 
+          { /*<Header searchTrails={this.searchTrails} />*/ } 
+          <div className = "side-panel" >
+            <LocationDisplay location = {this.state.selectedLocation} /> 
+            <Controls searchTrails = {this.searchTrails} 
+                      trails = {this.state.trailData.trails}
+                      filterByDistance={this.filterByDistance}
+                      resetLandingScreen={this.resetLandingScreen} /> 
+          </div>   
+            <TrailList trails = {this.state.trailData.trails} />
+        </div>
 
-
-      </div>
-    
       );
     }
   }
