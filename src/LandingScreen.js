@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './styles/LandingScreen.scss';
-
-
+import Search from './Search.js';
 
 export default class LandingScreen extends Component {
   constructor() {
@@ -41,6 +40,7 @@ export default class LandingScreen extends Component {
         }
 
           </select>
+          <Search searchTrails={this.props.searchTrails} />
           <button onClick={this.displayTrailsByLocation} className="submit-button">CHOSE A LOCATION</button>
         </div>
       </div>
