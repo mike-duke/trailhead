@@ -14,7 +14,6 @@ export default class Search extends Component {
     this.setState({
       searchInput: event.target.value.toLowerCase()
     })
-    console.log(this.state.searchInput)
   }
 
   render(){
