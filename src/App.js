@@ -108,9 +108,19 @@ class App extends Component {
     })
   }
 
+  filterByDifficulty = (difficulty) => {
+    let trailByDifficulty = this.state.trailData.trails.filter((trail) => {
+      return trail.difficultyRating === parseInt(difficulty)
+    })
+    this.setState({
+      trailData: {
+        trails: trailByDifficulty
+      }
+    })
+  }
+
   render() {
-    console.log(this.state.trailData.trails)
-    console.log(this.state.parkData.nationalParksparks)
+    // console.log(this.state.trailData.trails)
     if (this.state.landingScreen) {
       return ( 
         <div className = "App" >
@@ -122,14 +132,14 @@ class App extends Component {
     } else {
       return ( 
         <div className = "App" > 
-          { /*<Header searchTrails={this.searchTrails} />*/ } 
           <div className = "side-panel" >
             <LocationDisplay location = {this.state.selectedLocation} /> 
-            <Controls searchTrails = {this.searchTrails} 
-                      trails = {this.state.trailData.trails}
+            <Controls fetchTrails={this.fetchTrails} 
                       filterByDistance={this.filterByDistance}
+                      filterByDifficulty={this.filterByDifficulty}
+                      searchTrails = {this.searchTrails} 
                       toggleLandingScreen={this.toggleLandingScreen}
-                      fetchTrails={this.fetchTrails} /> 
+                      trails = {this.state.trailData.trails} />
           </div>   
             <TrailList trails = {this.state.trailData.trails} />
         </div>
