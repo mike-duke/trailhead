@@ -1,10 +1,10 @@
 .card {
-  background-color: rgba(34,139,34,0.85);;
+  background-color: rgba(34,139,34,0.85);
   height: 200px;
-  width: 500px;
+  width: 90%;
   border: solid 7px black;
-  margin: auto;
   margin-bottom: 10px;
+  margin-top: 10px;
   border-radius: 25px;
   text-align: center;
   padding: 10px;
@@ -16,24 +16,26 @@
 .distance-difficulty-container {
   display: flex;
   justify-content: space-between;
+  font-size: 20px;
 }
 
 .trail-name-title {
-  color: yellow;
+  color: #FFFF00;
   font-style: italic;
 }
 
 .park-name-title {
-  color: yellow;
+  color: #FFFF00;
   font-style: italic;
 }
 
+//We can use variables with sass for this hex color
 
 .distance-roundtrip-text {
-  color: yellow;
+  color: #FFFF00;
 }
 
 
 .difficulty-rating-text {
-  color: yellow;
+  color: #FFFF00;
 }
