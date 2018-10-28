@@ -14,6 +14,7 @@ export default class Card extends Component {
   }
 
   render() {
+    console.log(this.props)
     return ( 
       <div className="card" >
         <h1> Trail Name: {this.trailName} </h1> 

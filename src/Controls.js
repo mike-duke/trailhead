@@ -45,10 +45,15 @@ export default class Controls extends Component {
           <select onChange={this.updateDistance} className="distance-select">
             <option>Filter by distance (in miles)</option>
             {
-              this.props.trails.sort((trailA, trailB) => {
-                return trailA.distanceRoundtripMiles - trailB.distanceRoundtripMiles
-              }).map((trail, index) => {
-                return <option key={index} value={trail.distanceRoundtripMiles}>{trail.distanceRoundtripMiles}</option>
+              this.props.trails.reduce((arr, trail) => {
+                if (!arr.includes(trail.distanceRoundtripMiles)) {
+                  arr.push(trail.distanceRoundtripMiles)
+                }
+                return arr
+              }, []).sort((distanceA, distanceB) => {
+                return distanceA - distanceB;
+              }).map((trailDistance, index) => {
+                return <option key={index} value={trailDistance}>{trailDistance}</option>
               })
             }
           </select>
@@ -57,10 +62,15 @@ export default class Controls extends Component {
           <select onChange={this.updateDifficulty} className="difficulty-select">
             <option>Filter by difficulty rating</option>
             {
-              this.props.trails.sort((trailA, trailB) => {
-                return trailA.difficultyRating - trailB.difficultyRating;
-              }).map((trail, index) => {
-                return <option key={index} value={trail.difficultyRating}>{trail.difficultyRating}</option>
+              this.props.trails.reduce((arr, trail) => {
+                if (!arr.includes(trail.difficultyRating)) {
+                  arr.push(trail.difficultyRating)
+                }
+                return arr
+              }, []).sort((difficultyA, difficultyB) => {
+                return difficultyA - difficultyB;
+              }).map((trailDifficulty, index) => {
+                return <option key={index} value={trailDifficulty}>{trailDifficulty}</option>
               })
             }
           </select>
