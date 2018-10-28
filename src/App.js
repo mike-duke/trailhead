@@ -47,9 +47,20 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
+  fetchTrails = () => {
+    fetch('https://whateverly-datasets.herokuapp.com/api/v1/trails')
+      .then(response => response.json())
+      .then(trailData => {
+        this.setState({
+          trailData: trailData
+        })
+      })
+      .catch(error => console.log(error));
+  }
+
   toggleLandingScreen = () => {
     this.setState({
-      landingScreen: false
+      landingScreen: !this.state.landingScreen
     })
   }
 
@@ -97,13 +108,6 @@ class App extends Component {
     })
   }
 
-  resetLandingScreen = () => {
-    this.setState({
-      landingScreen: true
-    })
-  }
-
-
   render() {
     console.log(this.state.trailData.trails)
     console.log(this.state.parkData.nationalParksparks)
@@ -124,7 +128,8 @@ class App extends Component {
             <Controls searchTrails = {this.searchTrails} 
                       trails = {this.state.trailData.trails}
                       filterByDistance={this.filterByDistance}
-                      resetLandingScreen={this.resetLandingScreen} /> 
+                      toggleLandingScreen={this.toggleLandingScreen}
+                      fetchTrails={this.fetchTrails} /> 
           </div>   
             <TrailList trails = {this.state.trailData.trails} />
         </div>
