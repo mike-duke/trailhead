@@ -10,7 +10,6 @@ export default class Card extends Component {
   }
 
   render() {
-    console.log(this.props)
     return ( 
       <div className="card" >
         <h1><span className="trail-name-title">Trail:</span> {this.props.trail.trailName} </h1> 

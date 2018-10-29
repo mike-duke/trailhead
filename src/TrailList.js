@@ -8,9 +8,8 @@ export default class TrailList extends Component {
   constructor() {
     super();
   }
+  
   render(){
-    console.log(this.props.trails)
-    // debugger
     return (
       <div className="trail-list">
         {this.props.trails.map((trail, index) => {
