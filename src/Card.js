@@ -2,12 +2,8 @@ import React, { Component } from 'react';
 import './styles/Card.scss';
 
 export default class Card extends Component {
-  constructor(props) {
-    super(props);
-    this.trailName = props.trail.trailName;
-    this.parkName = props.trail.parkName;
-    this.difficultyRating = props.trail.difficultyRating;
-    this.distanceRoundtripMiles = props.trail.distanceRoundtripMiles
+  constructor() {
+    super();
     this.state = {
       fullCard: false
     }
@@ -17,14 +13,14 @@ export default class Card extends Component {
     console.log(this.props)
     return ( 
       <div className="card" >
-        <h1> Trail Name: {this.trailName} </h1> 
-        <h2> Park Name: {this.parkName} </h2> 
+        <h1> Trail Name: {this.props.trail.trailName} </h1> 
+        <h2> Park Name: {this.props.trail.parkName} </h2> 
         <div className="side-items">
           <div className="difficulty-rating" >
-            <p>Difficulty Rating: {this.difficultyRating}</p>
+            <p>Difficulty Rating: {this.props.trail.difficultyRating}</p>
           </div>
           <div className="distance-roundtrip"> 
-            <p>Distance Roundtrip:{this.distanceRoundtripMiles}</p>
+            <p>Distance Roundtrip:{this.props.trail.distanceRoundtripMiles}</p>
           </div>
         </div> 
       </div>
