@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Card from './Card.js';
-import './styles/TrailList.scss';
+import './styles/Main.scss';
 
 
 
