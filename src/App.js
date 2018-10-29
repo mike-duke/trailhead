@@ -1,16 +1,9 @@
-import React, {
-  Component
-} from 'react';
-// import logo from './logo.svg';
+import React, { Component } from 'react';
 import './styles/Main.scss';
 import TrailList from './TrailList.js';
-// import Header from './Header.js';
-// import Search from './Search.js';
 import LocationDisplay from './LocationDisplay.js';
 import LandingScreen from './LandingScreen.js';
 import Controls from './Controls.js';
-
-
 
 class App extends Component {
   constructor() {
@@ -19,6 +12,7 @@ class App extends Component {
       landingScreen: true,
       parkData: [],
       trailData: [],
+      filteredTrails: [],
       selectedLocation: ''
     }
   }
@@ -33,17 +27,6 @@ class App extends Component {
       })
       .catch(error => console.log(error))
 
-    fetch('https://whateverly-datasets.herokuapp.com/api/v1/trails')
-      .then(response => response.json())
-      .then(trailData => {
-        this.setState({
-          trailData: trailData.trails
-        })
-      })
-      .catch(error => console.log(error));
-  }
-
-  fetchTrails = () => {
     fetch('https://whateverly-datasets.herokuapp.com/api/v1/trails')
       .then(response => response.json())
       .then(trailData => {
@@ -75,7 +58,7 @@ class App extends Component {
       }, []);
 
     this.setState({
-      trailData: trailsByPark,
+      filteredTrails: trailsByPark,
       selectedLocation: location
     })
   }
@@ -97,7 +80,7 @@ class App extends Component {
     }
 
     this.setState({
-      trailData: foundTrails
+      filteredTrails: foundTrails
     })
   }
 
@@ -106,7 +89,7 @@ class App extends Component {
       return trail.distanceRoundtripMiles === parseInt(distance);
     })
     this.setState({
-      trailData: trailByDistance
+      filteredTrails: trailByDistance
     })
   }
 
@@ -115,12 +98,11 @@ class App extends Component {
       return trail.difficultyRating === parseInt(difficulty)
     })
     this.setState({
-      trailData: trailByDifficulty
+      filteredTrails: trailByDifficulty
     })
   }
 
   render() {
-    console.log(this.state.trailData)
     if (this.state.landingScreen) {
       return ( 
         <div className = "App" >
@@ -141,9 +123,9 @@ class App extends Component {
                       filterByDifficulty={this.filterByDifficulty}
                       searchTrails = {this.searchTrails} 
                       toggleLandingScreen={this.toggleLandingScreen}
-                      trails = {this.state.trailData} />
+                      trails={this.state.filteredTrails} />
           </div>   
-            <TrailList trails = {this.state.trailData} />
+            <TrailList trails={this.state.filteredTrails} />
         </div>
 
       );

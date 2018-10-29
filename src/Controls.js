@@ -33,11 +33,11 @@ export default class Controls extends Component {
   }
 
   resetApplication = () => {
-    this.props.fetchTrails();
     this.props.toggleLandingScreen();
   }
 
   render() {
+    console.log(this.props.trails)
     return (
       <div className="controls-container">
         <div className="select-container">
@@ -81,5 +81,4 @@ export default class Controls extends Component {
       </div>
     )
   }
-
 }
