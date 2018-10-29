@@ -21,20 +21,15 @@ $card-text-color: #FFFF00;
   font-size: 20px;
 }
 
-.trail-name-title {
-  color: $card-text-color;
-  font-style: italic;
-}
-
+.trail-name-title,
 .park-name-title {
   color: $card-text-color;
   font-style: italic;
 }
 
-.distance-roundtrip-text {
-  color: $card-text-color;
-}
 
-.difficulty-rating-text {
+.distance-roundtrip-text, 
+.difficulty-rating-text
+ {
   color: $card-text-color;
 }

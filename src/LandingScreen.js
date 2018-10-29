@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './styles/LandingScreen.scss';
+import './styles/Main.scss';
 import Search from './Search.js';
 
 export default class LandingScreen extends Component {

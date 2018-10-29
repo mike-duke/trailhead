@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './styles/Controls.scss';
+import './styles/Main.scss';
 import Search from './Search.js';
 
 
