@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './styles/LocationDisplay.scss';
+import './styles/Main.scss';
 
 
 export default class LocationDisplay extends Component {

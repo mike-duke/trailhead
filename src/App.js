@@ -2,7 +2,7 @@ import React, {
   Component
 } from 'react';
 // import logo from './logo.svg';
-import './styles/App.scss';
+import './styles/Main.scss';
 import TrailList from './TrailList.js';
 // import Header from './Header.js';
 // import Search from './Search.js';

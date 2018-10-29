@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Search from './Search.js';
-import './styles/Header.scss';
+import './styles/Main.scss';
 
 
 

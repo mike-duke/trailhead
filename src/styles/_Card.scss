@@ -1,0 +1,35 @@
+$card-text-color: #FFFF00;
+
+
+.card {
+  background-color: rgba(34,139,34,0.85);
+  height: 200px;
+  width: 90%;
+  border: solid 7px black;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border-radius: 25px;
+  text-align: center;
+  padding: 10px;
+  font-family: highway gothic;
+  color: white;
+}
+
+.distance-difficulty-container {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}
+
+.trail-name-title,
+.park-name-title {
+  color: $card-text-color;
+  font-style: italic;
+}
+
+
+.distance-roundtrip-text, 
+.difficulty-rating-text
+ {
+  color: $card-text-color;
+}
