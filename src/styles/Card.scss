@@ -1,3 +1,6 @@
+$card-text-color: #FFFF00;
+
+
 .card {
   background-color: rgba(34,139,34,0.85);
   height: 200px;
@@ -8,10 +11,9 @@
   border-radius: 25px;
   text-align: center;
   padding: 10px;
-  font-family: highway gotic;
+  font-family: highway gothic;
   color: white;
 }
-
 
 .distance-difficulty-container {
   display: flex;
@@ -20,22 +22,19 @@
 }
 
 .trail-name-title {
-  color: #FFFF00;
+  color: $card-text-color;
   font-style: italic;
 }
 
 .park-name-title {
-  color: #FFFF00;
+  color: $card-text-color;
   font-style: italic;
 }
 
-//We can use a SASS variable to dry up this hex color in these styles
-
 .distance-roundtrip-text {
-  color: #FFFF00;
+  color: $card-text-color;
 }
 
-
 .difficulty-rating-text {
-  color: #FFFF00;
+  color: $card-text-color;
 }
