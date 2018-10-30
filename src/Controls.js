@@ -86,6 +86,7 @@ export default class Controls extends Component {
             }
           </select>
           <button onClick={this.getDifficulty}>Submit</button>
+
           <select onChange={this.updateParkName} className="park-select">
             <option hidden>Filter by National Park</option>
             {
@@ -94,13 +95,14 @@ export default class Controls extends Component {
                   arr.push(trail.parkName)
                 }
                 return arr
-              }, []).map((parkName) => {
-                return <option>{parkName}</option>
+              }, []).map((parkName, index) => {
+                return <option key={index} value={parkName}>{parkName}</option>
               })
             }
           </select>
           <button onClick={this.getParkName}>Submit</button>
         </div>
+        
         <Search searchTrails={this.props.searchTrails} />
         <button onClick={this.resetApplication} className="reset-search-button">Start Over</button>
       </div>

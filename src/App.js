@@ -5,7 +5,7 @@ import LocationDisplay from './LocationDisplay.js';
 import LandingScreen from './LandingScreen.js';
 import Controls from './Controls.js';
 
-class App extends Component {
+export default class App extends Component {
   constructor() {
     super();
     this.state = {
@@ -69,12 +69,12 @@ class App extends Component {
     })
 
     if (this.state.landingScreen) {
-        this.state.landingScreen = false;
         let newLocation = this.state.parkData.filter((park) => {
           return park.parkName.includes(foundTrails[0].parkName)
         })
         let newLocationAbr = newLocation[0].usState
         this.setState({
+          landingScreen: false,
           selectedLocation: newLocationAbr
         })
     }
@@ -121,7 +121,7 @@ class App extends Component {
                         fetchTrails={this.fetchTrails} 
                         searchTrails={this.searchTrails} />
         </div>
-      )
+      );
     } else {
       return ( 
         <div className = "App" > 
@@ -138,10 +138,7 @@ class App extends Component {
             <TrailList trails={this.state.filteredTrails} 
                         parks={this.state.parkData} />
         </div>
-
       );
     }
   }
 }
-
-export default App;

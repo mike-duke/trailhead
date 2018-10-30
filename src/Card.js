@@ -39,22 +39,22 @@ export default class Card extends Component {
     let openString = 'This trail ';
 
     if (trail.openInWinter) {
-      openString += 'is open in winter.'
+      openString += 'is '
     } else {
-      openString += 'is not open in winter.'
+      openString += 'is not '
     }
-    return openString
+    return openString += 'open in winter.';
   }
 
   getParkingMessage = (trail) => {
-    let parkingString = 'This trail ';
+    let parkingString = 'Parking ';
 
     if (trail.parkingAtTrailhead) {
-      parkingString += 'has parking available.'
+      parkingString += 'is '
     } else {
-      parkingString += 'does not have parking available.'
+      parkingString += 'is not '
     }
-    return parkingString;
+    return parkingString += 'available at the trailhead.';
   }
 
   render() {
@@ -66,12 +66,12 @@ export default class Card extends Component {
           <h1><span className="trail-name-title">Trail:</span> {this.props.trail.trailName} </h1> 
             <p>{open}</p>
             <p>{parking}</p>
-            <p>Starting Elevation (in ft.): <span>{(this.props.trail.startingElevationFeet).toLocaleString('en')}</span></p>
+            <p>Starting Elevation: <span>{(this.props.trail.startingElevationFeet).toLocaleString('en')} ft.</span></p>
 
-          <h2><span className="park-name-title">National Park:</span>{this.props.trail.parkName}</h2>
+          <h2><span className="park-name-title">National Park: </span>{this.props.trail.parkName}</h2>
 
           <p>
-            Established in: <span>{this.state.nationalPark.yearEstablished}</span>
+            Established in <span>{this.state.nationalPark.yearEstablished}</span>
           </p>
           <p>
             Visitors last year: <span>{(this.state.nationalPark.visitorsLastYear).toLocaleString('en')}</span>

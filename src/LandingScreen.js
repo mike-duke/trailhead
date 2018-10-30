@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './styles/Main.scss';
-import Search from './Search.js';
 
 export default class LandingScreen extends Component {
   constructor() {
@@ -27,19 +26,21 @@ export default class LandingScreen extends Component {
         <div className="landing-screen">
           
           <h1>Trailhead</h1>
-          <select onChange={this.updateSelectedLocation} className="location-select">
-          <option>Select a state</option>
-          {this.props.parks.reduce((locationArr, location) => {
-            if (!locationArr.includes(location.usState)){
-              locationArr.push(location.usState)
-            }
-            return locationArr; 
-          }, []).map((usState, index) => {
-            return <option key={index} value={usState}>{usState}</option>
-          })
-        }
 
+          <select onChange={this.updateSelectedLocation} className="location-select">
+          <option hidden>Select a state</option>
+            {
+              this.props.parks.reduce((locationArr, location) => {
+                if (!locationArr.includes(location.usState)){
+                  locationArr.push(location.usState)
+                }
+                return locationArr; 
+              }, []).map((usState, index) => {
+                return <option key={index} value={usState}>{usState}</option>
+              })
+            }
           </select>
+
           <button onClick={this.displayTrailsByLocation} className="submit-button">CHOOSE A LOCATION</button>
         </div>
       </div>
