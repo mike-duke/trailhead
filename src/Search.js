@@ -13,10 +13,10 @@ export default class Search extends Component {
   updateSearch = (event) => {
     this.setState({
       searchInput: event.target.value.toLowerCase()
-    })
+    });
   }
 
-  render(){
+  render() {
     return (
       <div className="trail-search-container">
         <form onSubmit={(event) => {

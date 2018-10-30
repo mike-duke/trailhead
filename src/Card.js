@@ -18,8 +18,8 @@ export default class Card extends Component {
   toggleFullCard = () => {
     this.setState({
       fullCard: !this.state.fullCard,
-    })
-    this.getPark()
+    });
+    this.getPark();
   }
 
   getPark = () => {
@@ -31,17 +31,17 @@ export default class Card extends Component {
           visitorsLastYear: park.vistorsLastYear,
           yearEstablished: park.yearEstablished,
         }
-      })
-    })
+      });
+    });
   }
 
   getOpenMessage = (trail) => {
     let openString = 'This trail ';
 
     if (trail.openInWinter) {
-      openString += 'is '
+      openString += 'is ';
     } else {
-      openString += 'is not '
+      openString += 'is not ';
     }
     return openString += 'open in winter.';
   }
@@ -50,23 +50,23 @@ export default class Card extends Component {
     let parkingString = 'Parking ';
 
     if (trail.parkingAtTrailhead) {
-      parkingString += 'is '
+      parkingString += 'is ';
     } else {
-      parkingString += 'is not '
+      parkingString += 'is not ';
     }
     return parkingString += 'available at the trailhead.';
   }
 
   render() {
-    let open = this.getOpenMessage(this.props.trail)
-    let parking = this.getParkingMessage(this.props.trail)
+    let open = this.getOpenMessage(this.props.trail);
+    let parking = this.getParkingMessage(this.props.trail);
     if (this.state.fullCard) {
       return (
         <div className="full-card" onClick={this.toggleFullCard}>
           <h1><span className="trail-name-title">Trail:</span> {this.props.trail.trailName} </h1> 
-            <p>{open}</p>
-            <p>{parking}</p>
-            <p>Starting Elevation: <span>{(this.props.trail.startingElevationFeet).toLocaleString('en')} ft.</span></p>
+          <p>{open}</p>
+          <p>{parking}</p>
+          <p>Starting Elevation: <span>{(this.props.trail.startingElevationFeet).toLocaleString('en')} ft.</span></p>
 
           <h2><span className="park-name-title">National Park: </span>{this.props.trail.parkName}</h2>
 
@@ -86,7 +86,7 @@ export default class Card extends Component {
             </div>
           </div> 
         </div>
-      )
+      );
     } else {
       return ( 
         <div className="card" onClick={this.toggleFullCard}>
@@ -101,7 +101,7 @@ export default class Card extends Component {
             </div>
           </div> 
         </div>
-      )
+      );
     }
   }
 }

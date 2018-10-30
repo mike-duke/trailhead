@@ -44,18 +44,18 @@ export default class App extends Component {
   }
 
   getTrailsByLocation = (location) => {
-      const parksByLocation = this.state.parkData.filter((park) => {
-        return park.usState === location;
-      });
+    const parksByLocation = this.state.parkData.filter((park) => {
+      return park.usState === location;
+    });
 
-      const trailsByPark = this.state.trailData.reduce((trailsArr, trail) => {
-        parksByLocation.forEach((park) => {
-          if (park.parkName === trail.parkName) {
-            trailsArr.push(trail);
-          }
-        });
-        return trailsArr;
-      }, []);
+    const trailsByPark = this.state.trailData.reduce((trailsArr, trail) => {
+      parksByLocation.forEach((park) => {
+        if (park.parkName === trail.parkName) {
+          trailsArr.push(trail);
+        }
+      });
+      return trailsArr;
+    }, []);
 
     this.setState({
       filteredTrails: trailsByPark,
@@ -66,17 +66,17 @@ export default class App extends Component {
   searchTrails = (searchInput) => {
     let foundTrails = this.state.trailData.filter((trail) => {
       return trail.trailName.toLowerCase().includes(searchInput);
-    })
+    });
 
     if (this.state.landingScreen) {
-        let newLocation = this.state.parkData.filter((park) => {
-          return park.parkName.includes(foundTrails[0].parkName)
-        })
-        let newLocationAbr = newLocation[0].usState
-        this.setState({
-          landingScreen: false,
-          selectedLocation: newLocationAbr
-        })
+      let newLocation = this.state.parkData.filter((park) => {
+        return park.parkName.includes(foundTrails[0].parkName)
+      });
+      let newLocationAbr = newLocation[0].usState
+      this.setState({
+        landingScreen: false,
+        selectedLocation: newLocationAbr
+      });
     }
 
     this.setState({

@@ -14,7 +14,6 @@ $card-text-color: #FFFF00;
   color: white;
 }
 
-
 .full-card {
   @extend .card;
   height: 400px;
@@ -36,7 +35,6 @@ $card-text-color: #FFFF00;
   color: $card-text-color;
   font-style: italic;
 }
-
 
 .distance-roundtrip-text, 
 .difficulty-rating-text

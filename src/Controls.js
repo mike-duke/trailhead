@@ -16,31 +16,31 @@ export default class Controls extends Component {
   updateDifficulty = (event) => {
     this.setState({
       difficulty: event.target.value
-    })
+    });
   }
 
   updateDistance = (event) => {
     this.setState({
       distance: event.target.value
-    })
+    });
   }
 
   updateParkName = (event) => {
     this.setState({
       parkName: event.target.value
-    })
+    });
   }
 
   getDifficulty = () => {
-    this.props.filterByDifficulty(this.state.difficulty)
+    this.props.filterByDifficulty(this.state.difficulty);
   }
   
   getDistance = () => {
-    this.props.filterByDistance(this.state.distance)
+    this.props.filterByDistance(this.state.distance);
   }
 
   getParkName = () => {
-    this.props.filterByParkName(this.state.parkName)
+    this.props.filterByParkName(this.state.parkName);
   }
 
   resetApplication = () => {
@@ -93,22 +93,22 @@ export default class Controls extends Component {
               <option hidden>Filter by National Park</option>
               {
                 this.props.trails.reduce((arr, trail) => {
-                  if(!arr.includes(trail.parkName)) {
-                    arr.push(trail.parkName)
+                  if (!arr.includes(trail.parkName)) {
+                    arr.push(trail.parkName);
                   }
-                  return arr
+                  return arr;
                 }, []).map((parkName, index) => {
                   return <option key={index} value={parkName}>{parkName}</option>
                 })
               }
             </select>
             <button onClick={this.getParkName}>Submit</button>
-           </div> 
+          </div> 
         </div>
         
         <Search searchTrails={this.props.searchTrails} />
         <button onClick={this.resetApplication} className="reset-search-button">Start Over</button>
       </div>
-    )
+    );
   }
 }

@@ -9,7 +9,7 @@ export default function Traillist(props) {
       {props.trails.map((trail, index) => {
         return <Card key={index} trail={trail} parks={props.parks} />
       })
-    }
+      }
     </div>
-  )
+  );
 }
