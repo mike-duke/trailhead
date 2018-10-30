@@ -95,8 +95,8 @@ export default class Controls extends Component {
                   arr.push(trail.parkName)
                 }
                 return arr
-              }, []).map((parkName) => {
-                return <option>{parkName}</option>
+              }, []).map((parkName, index) => {
+                return <option key={index} value={parkName}>{parkName}</option>
               })
             }
           </select>

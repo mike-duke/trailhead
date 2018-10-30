@@ -69,12 +69,12 @@ export default class App extends Component {
     })
 
     if (this.state.landingScreen) {
-        this.state.landingScreen = false;
         let newLocation = this.state.parkData.filter((park) => {
           return park.parkName.includes(foundTrails[0].parkName)
         })
         let newLocationAbr = newLocation[0].usState
         this.setState({
+          landingScreen: false,
           selectedLocation: newLocationAbr
         })
     }
