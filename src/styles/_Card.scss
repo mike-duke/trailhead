@@ -31,6 +31,12 @@ $card-text-color: #FFFF00;
   color: white;
 }
 
+
+.full-card {
+  @extend .card;
+  height: 400px;
+}
+
 .card:hover {
   cursor: pointer;
   animation: bounce .9s;

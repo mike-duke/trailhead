@@ -8,7 +8,8 @@ export default class Controls extends Component {
     super();
     this.state = {
       distance: '',
-      difficulty: ''
+      difficulty: '',
+      parkName: ''
     }
   }
 
@@ -24,6 +25,12 @@ export default class Controls extends Component {
     })
   }
 
+  updateParkName = (event) => {
+    this.setState({
+      parkName: event.target.value
+    })
+  }
+
   getDifficulty = () => {
     this.props.filterByDifficulty(this.state.difficulty)
   }
@@ -32,18 +39,22 @@ export default class Controls extends Component {
     this.props.filterByDistance(this.state.distance)
   }
 
+  getParkName = () => {
+    this.props.filterByParkName(this.state.parkName)
+  }
+
   resetApplication = () => {
     this.props.toggleLandingScreen();
   }
 
   render() {
-    console.log(this.props.trails)
     return (
       <div className="controls-container">
+        <h4>Number of Trails: {this.props.trails.length}</h4>
         <div className="select-container">
 
           <select onChange={this.updateDistance} className="distance-select">
-            <option>Filter by distance (in miles)</option>
+            <option hidden>Filter by distance (in miles)</option>
             {
               this.props.trails.reduce((arr, trail) => {
                 if (!arr.includes(trail.distanceRoundtripMiles)) {
@@ -60,7 +71,7 @@ export default class Controls extends Component {
           <button onClick={this.getDistance}>Submit</button>
 
           <select onChange={this.updateDifficulty} className="difficulty-select">
-            <option>Filter by difficulty rating</option>
+            <option hidden>Filter by difficulty rating</option>
             {
               this.props.trails.reduce((arr, trail) => {
                 if (!arr.includes(trail.difficultyRating)) {
@@ -75,6 +86,20 @@ export default class Controls extends Component {
             }
           </select>
           <button onClick={this.getDifficulty}>Submit</button>
+          <select onChange={this.updateParkName} className="park-select">
+            <option hidden>Filter by National Park</option>
+            {
+              this.props.trails.reduce((arr, trail) => {
+                if(!arr.includes(trail.parkName)) {
+                  arr.push(trail.parkName)
+                }
+                return arr
+              }, []).map((parkName) => {
+                return <option>{parkName}</option>
+              })
+            }
+          </select>
+          <button onClick={this.getParkName}>Submit</button>
         </div>
         <Search searchTrails={this.props.searchTrails} />
         <button onClick={this.resetApplication} className="reset-search-button">Start Over</button>

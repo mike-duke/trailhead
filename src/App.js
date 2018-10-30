@@ -85,7 +85,7 @@ class App extends Component {
   }
 
   filterByDistance = (distance) => {
-    let trailByDistance = this.state.trailData.filter((trail) => {
+    let trailByDistance = this.state.filteredTrails.filter((trail) => {
       return trail.distanceRoundtripMiles === parseInt(distance);
     })
     this.setState({
@@ -94,11 +94,20 @@ class App extends Component {
   }
 
   filterByDifficulty = (difficulty) => {
-    let trailByDifficulty = this.state.trailData.filter((trail) => {
+    let trailByDifficulty = this.state.filteredTrails.filter((trail) => {
       return trail.difficultyRating === parseInt(difficulty)
     })
     this.setState({
       filteredTrails: trailByDifficulty
+    })
+  }
+
+  filterByParkName = (parkName) => {
+    let parksByName = this.state.trailData.filter((trail) => {
+      return trail.parkName === parkName;
+    })
+    this.setState({
+      filteredTrails: parksByName
     })
   }
 
@@ -121,11 +130,13 @@ class App extends Component {
             <Controls fetchTrails={this.fetchTrails} 
                       filterByDistance={this.filterByDistance}
                       filterByDifficulty={this.filterByDifficulty}
+                      filterByParkName={this.filterByParkName}
                       searchTrails = {this.searchTrails} 
                       toggleLandingScreen={this.toggleLandingScreen}
                       trails={this.state.filteredTrails} />
           </div>   
-            <TrailList trails={this.state.filteredTrails} />
+            <TrailList trails={this.state.filteredTrails} 
+                        parks={this.state.parkData} />
         </div>
 
       );

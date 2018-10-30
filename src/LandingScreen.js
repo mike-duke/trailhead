@@ -40,8 +40,7 @@ export default class LandingScreen extends Component {
         }
 
           </select>
-          <Search searchTrails={this.props.searchTrails} />
-          <button onClick={this.displayTrailsByLocation} className="submit-button">CHOSE A LOCATION</button>
+          <button onClick={this.displayTrailsByLocation} className="submit-button">CHOOSE A LOCATION</button>
         </div>
       </div>
     )
