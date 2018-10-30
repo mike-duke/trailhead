@@ -1,22 +1,5 @@
 $card-text-color: #FFFF00;
 
-@keyframes bounce {
-  0%, 20%, 60%, 100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-
-  40% {
-    -webkit-transform: translateY(-10px);
-    transform: translateY(-10px);
-  }
-
-  80% {
-    -webkit-transform: translateY(-10px);
-    transform: translateY(-10px);
-  }
-}
-
 .card {
   background-color: rgba(34,139,34,0.85);
   height: 200px;
@@ -39,12 +22,12 @@ $card-text-color: #FFFF00;
 
 .card:hover {
   cursor: pointer;
-  animation: bounce .9s;
+  box-shadow: inset 0 0 0 7px white;
 }
 
 .distance-difficulty-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   font-size: 20px;
 }
 
