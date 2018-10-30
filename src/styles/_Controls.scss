@@ -1,15 +1,25 @@
 .reset-search-button {
-  border-radius: 25px;
-  margin: 10px;
-  font-size: 15px;
+  height: 40px;
+  border-radius: 10px;
+  font-weight: 700;
+  background-color: #228B22;
+  border: solid black;
+  color: white;
 }
 
 .controls-container {
-  margin: -15px;
+  text-align: left;
+  padding-left: 75px;
 }
 
 .controls-container h4 {
   margin: 4px;
+}
+
+.distance-select-container,
+.difficulty-select-container,
+.park-select-container {
+  margin: 5px 0;
 }
 
 
@@ -17,4 +27,5 @@
 .difficulty-select,
 .park-select {
   border: solid black 2px;
+  width: 175px;
 }

@@ -18,7 +18,7 @@ export default class Search extends Component {
 
   render(){
     return (
-      <div>
+      <div className="trail-search-container">
         <form onSubmit={(event) => {
           event.preventDefault()
           this.props.searchTrails(this.state.searchInput)}} >
