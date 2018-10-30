@@ -39,6 +39,7 @@ export default class Controls extends Component {
   render() {
     return (
       <div className="controls-container">
+        <h4>Number of Trails: {this.props.trails.length}</h4>
         <div className="select-container">
 
           <select onChange={this.updateDistance} className="distance-select">
