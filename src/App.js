@@ -125,7 +125,8 @@ class App extends Component {
                       toggleLandingScreen={this.toggleLandingScreen}
                       trails={this.state.filteredTrails} />
           </div>   
-            <TrailList trails={this.state.filteredTrails} />
+            <TrailList trails={this.state.filteredTrails} 
+                        parks={this.state.parkData} />
         </div>
 
       );

@@ -37,7 +37,6 @@ export default class Controls extends Component {
   }
 
   render() {
-    console.log(this.props.trails)
     return (
       <div className="controls-container">
         <div className="select-container">

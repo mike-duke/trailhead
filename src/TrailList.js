@@ -8,12 +8,12 @@ export default class TrailList extends Component {
   constructor() {
     super();
   }
-  
+
   render(){
     return (
       <div className="trail-list">
         {this.props.trails.map((trail, index) => {
-          return <Card key={index} trail={trail} />
+          return <Card key={index} trail={trail} parks={this.props.parks} />
         })
       }
       </div>

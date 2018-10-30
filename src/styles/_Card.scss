@@ -15,6 +15,11 @@ $card-text-color: #FFFF00;
   color: white;
 }
 
+.full-card {
+  @extend .card;
+  height: 400px;
+}
+
 .distance-difficulty-container {
   display: flex;
   justify-content: space-between;
