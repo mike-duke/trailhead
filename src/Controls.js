@@ -3,7 +3,7 @@ import './styles/Main.scss';
 import Search from './Search.js';
 
 export default class Controls extends Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
       distance: '',
@@ -11,7 +11,9 @@ export default class Controls extends Component {
       parkName: '',
       distanceDisabled: true,
       difficultyDisabled: true,
-      parkDisabled: true
+      parkDisabled: true,
+      selectedLocation: props.location,
+      allTrails: props.trails
     }
   }
 
@@ -52,10 +54,14 @@ export default class Controls extends Component {
     this.props.toggleLandingScreen();
   }
 
+  resetFilters = () => {
+    this.props.resetAllFilters(this.state.allTrails);
+  }
+
   render() {
     return (
       <div className="controls-container">
-          <h1 className="location-display">{this.props.location}</h1>
+          <h1 className="location-display">{this.state.selectedLocation}</h1>
         <div className="select-container">
           <hr />
           <h4>Number of Trails: {this.props.trails.length}</h4>
@@ -111,6 +117,7 @@ export default class Controls extends Component {
             </select>
             <button onClick={this.getParkName} disabled={this.state.parkDisabled}>Submit</button>
           </div> 
+        <button onClick={this.resetFilters}  className="reset-filters-button">Reset Filters</button>    
         </div>
         
         <Search searchTrails={this.props.searchTrails} 

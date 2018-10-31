@@ -110,6 +110,12 @@ export default class App extends Component {
     })
   }
 
+  resetAllFilters = (allTrails) => {
+    this.setState({
+      filteredTrails: allTrails
+    })
+  }
+
   render() {
     if (this.state.landingScreen) {
       return ( 
@@ -132,7 +138,8 @@ export default class App extends Component {
                       searchTrails = {this.searchTrails} 
                       toggleLandingScreen={this.toggleLandingScreen}
                       trails={this.state.filteredTrails}
-                      location = {this.state.selectedLocation} />
+                      location = {this.state.selectedLocation} 
+                      resetAllFilters={this.resetAllFilters}/>
           {/* </div>    */}
             <TrailList trails={this.state.filteredTrails} 
                         parks={this.state.parkData} />
