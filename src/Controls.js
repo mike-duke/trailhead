@@ -113,7 +113,8 @@ export default class Controls extends Component {
           </div> 
         </div>
         
-        <Search searchTrails={this.props.searchTrails} />
+        <Search searchTrails={this.props.searchTrails} 
+                trails={this.props.trails} />
         <button onClick={this.resetApplication} className="reset-search-button">Start Over</button>
       </div>
     );
