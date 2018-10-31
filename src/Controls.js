@@ -97,7 +97,7 @@ export default class Controls extends Component {
           </div>
           <div className="park-select-container">
             <select onChange={this.updateParkName} className="park-select">
-              <option hidden>Filter by National Park</option>
+              <option hidden>Filter by Park</option>
               {
                 this.props.trails.reduce((arr, trail) => {
                   if (!arr.includes(trail.parkName)) {

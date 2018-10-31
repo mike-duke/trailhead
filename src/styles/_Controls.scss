@@ -1,3 +1,6 @@
+$submit-button-color: lightgray;
+
+
 .location-display {
   color: green;
   margin: 20px 0 10px 35px;
@@ -7,7 +10,7 @@
   text-align: left;
   height: 300px;
   margin: 10px;
-  width: 33%;
+  width: 400px;
   border-radius: 25px;
   background-color: rgba(255,255,255,0.7)
 }
@@ -26,14 +29,14 @@
   margin: 5px 0;
 
   button {
-    background: lightgray;
+    background: $submit-button-color;
 
     &:disabled {
-      background: darken(lightgray, 10%)
+      background: darken($submit-button-color, 10%)
     }
 
     &:hover:enabled {
-      background: lighten(lightgray, 10%)
+      background: lighten($submit-button-color, 10%)
     }
   }
 }
@@ -43,6 +46,7 @@
 .park-select {
   border: solid black 2px;
   width: 175px;
+  font-size: 12px;
 }
 
 .reset-search-button {
