@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './styles/Main.scss';
 import TrailList from './TrailList.js';
-import LocationDisplay from './LocationDisplay.js';
+// import LocationDisplay from './LocationDisplay.js';
 import LandingScreen from './LandingScreen.js';
 import Controls from './Controls.js';
 
@@ -125,16 +125,16 @@ export default class App extends Component {
     } else {
       return ( 
         <div className = "App" > 
-          <div className = "side-panel" >
-            <LocationDisplay location = {this.state.selectedLocation} /> 
+          {/* <div className = "side-panel" > */}
             <Controls fetchTrails={this.fetchTrails} 
                       filterByDistance={this.filterByDistance}
                       filterByDifficulty={this.filterByDifficulty}
                       filterByParkName={this.filterByParkName}
                       searchTrails = {this.searchTrails} 
                       toggleLandingScreen={this.toggleLandingScreen}
-                      trails={this.state.filteredTrails} />
-          </div>   
+                      trails={this.state.filteredTrails}
+                      location = {this.state.selectedLocation} />
+          {/* </div>    */}
             <TrailList trails={this.state.filteredTrails} 
                         parks={this.state.parkData} />
         </div>

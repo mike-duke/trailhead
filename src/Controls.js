@@ -2,32 +2,37 @@ import React, { Component } from 'react';
 import './styles/Main.scss';
 import Search from './Search.js';
 
-
 export default class Controls extends Component {
   constructor() {
     super();
     this.state = {
       distance: '',
       difficulty: '',
-      parkName: ''
+      parkName: '',
+      distanceDisabled: true,
+      difficultyDisabled: true,
+      parkDisabled: true
     }
   }
 
   updateDifficulty = (event) => {
     this.setState({
-      difficulty: event.target.value
+      difficulty: event.target.value,
+      difficultyDisabled: false
     });
   }
 
   updateDistance = (event) => {
     this.setState({
-      distance: event.target.value
+      distance: event.target.value,
+      distanceDisabled: false
     });
   }
 
   updateParkName = (event) => {
     this.setState({
-      parkName: event.target.value
+      parkName: event.target.value,
+      parkDisabled: false
     });
   }
 
@@ -50,8 +55,10 @@ export default class Controls extends Component {
   render() {
     return (
       <div className="controls-container">
-        <h4>Number of Trails: {this.props.trails.length}</h4>
+          <h1 className="location-display">{this.props.location}</h1>
         <div className="select-container">
+          <hr />
+          <h4>Number of Trails: {this.props.trails.length}</h4>
           <div className="distance-select-container">
             <select onChange={this.updateDistance} className="distance-select">
               <option hidden>Filter by distance (in miles)</option>
@@ -68,7 +75,7 @@ export default class Controls extends Component {
                 })
               }
             </select>
-            <button onClick={this.getDistance}>Submit</button>
+            <button onClick={this.getDistance} disabled={this.state.distanceDisabled}>Submit</button>
           </div>
           <div className="difficulty-select-container">
             <select onChange={this.updateDifficulty} className="difficulty-select">
@@ -86,7 +93,7 @@ export default class Controls extends Component {
                 })
               }
             </select>
-            <button onClick={this.getDifficulty}>Submit</button>
+            <button onClick={this.getDifficulty} disabled={this.state.difficultyDisabled}>Submit</button>
           </div>
           <div className="park-select-container">
             <select onChange={this.updateParkName} className="park-select">
@@ -102,7 +109,7 @@ export default class Controls extends Component {
                 })
               }
             </select>
-            <button onClick={this.getParkName}>Submit</button>
+            <button onClick={this.getParkName} disabled={this.state.parkDisabled}>Submit</button>
           </div> 
         </div>
         

@@ -5,13 +5,15 @@ export default class LandingScreen extends Component {
   constructor() {
     super();
     this.state = {
-      selectedLocation: ''
+      selectedLocation: '',
+      disabled: true
     }
   }
 
   updateSelectedLocation = (event) => {
     this.setState ( {
-      selectedLocation: event.target.value
+      selectedLocation: event.target.value,
+      disabled: false
     });
   }
 
@@ -41,7 +43,7 @@ export default class LandingScreen extends Component {
             }
           </select>
 
-          <button onClick={this.displayTrailsByLocation} className="submit-button">CHOOSE A LOCATION</button>
+          <button onClick={this.displayTrailsByLocation} className="submit-button" disabled={this.state.disabled}>CHOOSE A LOCATION</button>
         </div>
       </div>
     );

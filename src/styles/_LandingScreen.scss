@@ -6,6 +6,10 @@
   width: 100%;
 }
 
+.landing-screen h1 {
+  margin: 0;
+}
+
 .landing-screen {
   background-color: rgba(255,255,255,0.7);
   height: 200px;
@@ -29,4 +33,12 @@
   background-color: #228B22;
   border: solid black;
   color: white;
+
+  &:disabled {
+    background: darken(#228B22, 10%)
+  }
+
+  &:hover:enabled {
+    background: lighten(#228B22, 10%)
+  }
 }

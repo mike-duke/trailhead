@@ -23,8 +23,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "devDependencies": {
-    "eslint": "^5.8.0",
-    "eslint-plugin-react": "^7.11.1"
-  }
+  "devDependencies": {}
 }
