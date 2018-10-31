@@ -82,7 +82,7 @@ export default class Card extends Component {
               <p><span className="difficulty-rating-text">Difficulty Rating: </span>{this.props.trail.difficultyRating}</p>
             </div>
             <div className="distance-roundtrip"> 
-              <p><span className="distance-roundtrip-text">Distance Roundtrip: </span>{this.props.trail.distanceRoundtripMiles}</p>
+              <p><span className="distance-roundtrip-text">Distance Roundtrip: </span>{this.props.trail.distanceRoundtripMiles} mi.</p>
             </div>
           </div> 
         </div>
@@ -97,7 +97,7 @@ export default class Card extends Component {
               <p><span className="difficulty-rating-text">Difficulty Rating: </span>{this.props.trail.difficultyRating}</p>
             </div>
             <div className="distance-roundtrip"> 
-              <p><span className="distance-roundtrip-text">Distance Roundtrip: </span>{this.props.trail.distanceRoundtripMiles}</p>
+              <p><span className="distance-roundtrip-text">Distance Roundtrip: </span>{this.props.trail.distanceRoundtripMiles} mi.</p>
             </div>
           </div> 
         </div>
