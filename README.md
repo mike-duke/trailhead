@@ -2,7 +2,7 @@
 
 ## Project Description
 
-Trailhead is a web application that allows hikers and outdoor enthusiasts to search for trails across multiple National Parks. Hikers can filter their selection by distance, difficulty, and other preferences. Trailhead was built using ReactJS, the fetch API, and Sass styling at Turing School of Software and Design.
+Trailhead is a web application that allows hikers and outdoor enthusiasts to search for trails across multiple National Parks. Hikers can filter their selection by distance, difficulty, and other preferences. Trailhead was built a paired project using ReactJS, the fetch API, and Sass styling at Turing School of Software and Design.
 
 Current Version: 
 ![Current Version](https://github.com/pvinthemix/trailhead/blob/master/src/styles/images/currentversion.png?raw=true)
