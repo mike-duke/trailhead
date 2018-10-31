@@ -1,7 +1,7 @@
 $card-text-color: #FFFF00;
 
 .card {
-  background-color: rgba(34,139,34,0.85);
+  background-color: rgba(34,139,34,0.80);
   height: 200px;
   width: 90%;
   border: solid 7px black;
@@ -19,6 +19,7 @@ $card-text-color: #FFFF00;
 .full-card {
   @extend .card;
   height: 400px;
+  background-color: rgba(34,139,34,.95)
 }
 
 .card:hover {
