@@ -11,20 +11,20 @@ Current Version:
 
 These instructions will get you a copy of the project up and running on your local machine for usage and testing purposes. 
 
-Link to clone down:
+clone down the directory:
 ```
 
 $ git clone https://github.com/pvinthemix/trailhead.git
 
 ```
-Run NPM install:
+cd into directory and run npm install:
 
 ```
 
 $ npm install
 
 ```
-Getting it to run in your browser:
+launch in your browser:
 
 ```
 
