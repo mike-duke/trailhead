@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import './styles/Main.scss';
 import TrailList from './TrailList.js';
-// import LocationDisplay from './LocationDisplay.js';
 import LandingScreen from './LandingScreen.js';
 import Controls from './Controls.js';
-
+  
 export default class App extends Component {
   constructor() {
     super();
