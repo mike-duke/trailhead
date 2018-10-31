@@ -1,7 +1,19 @@
 .trail-search-container {
-  margin: 10px 0;
-}
+  margin: 10px 35px;
+  
+  input {
+    width: 175px;
+  }
 
-.trail-search-container input {
-  width: 175px;
+  button {
+    background: lightgray;
+
+    &:disabled {
+      background: darken(lightgray, 10%)
+    }
+
+    &:hover:enabled {
+      background: lighten(lightgray, 10%)
+    }
+  }
 }

@@ -7,12 +7,14 @@ export default class Search extends Component {
     super();
     this.state = {
       searchInput: '',
+      disabled: true
     }
   }
 
   updateSearch = (event) => {
     this.setState({
-      searchInput: event.target.value.toLowerCase()
+      searchInput: event.target.value.toLowerCase(),
+      disabled: false
     });
   }
 
@@ -22,8 +24,8 @@ export default class Search extends Component {
         <form onSubmit={(event) => {
           event.preventDefault()
           this.props.searchTrails(this.state.searchInput)}} >
-          <input onChange={this.updateSearch} type="search" placeholder="Trail Search"/>
-          <button className="trail-search-button">Search</button>
+          <input onChange={this.updateSearch} type="search" placeholder="Search for a Trail"/>
+          <button className="trail-search-button" disabled={this.state.disabled}>Search</button>
         </form>
       </div>
     )
