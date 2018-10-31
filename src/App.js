@@ -130,7 +130,6 @@ export default class App extends Component {
     } else {
       return ( 
         <div className = "App" > 
-          {/* <div className = "side-panel" > */}
             <Controls fetchTrails={this.fetchTrails} 
                       filterByDistance={this.filterByDistance}
                       filterByDifficulty={this.filterByDifficulty}
@@ -140,7 +139,6 @@ export default class App extends Component {
                       trails={this.state.filteredTrails}
                       location = {this.state.selectedLocation} 
                       resetAllFilters={this.resetAllFilters}/>
-          {/* </div>    */}
             <TrailList trails={this.state.filteredTrails} 
                         parks={this.state.parkData} />
         </div>
