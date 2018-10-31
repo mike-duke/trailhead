@@ -12,6 +12,8 @@ $card-text-color: #FFFF00;
   padding: 10px;
   font-family: highway gothic;
   color: white;
+  transition: all 0.2s linear;
+  overflow: hidden;
 }
 
 .full-card {
