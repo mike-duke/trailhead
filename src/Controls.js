@@ -6,9 +6,9 @@ export default class Controls extends Component {
   constructor(props) {
     super();
     this.state = {
-      distance: '',
-      difficulty: '',
-      parkName: '',
+      distance: null,
+      difficulty: null,
+      parkName: null,
       distanceDisabled: true,
       difficultyDisabled: true,
       parkDisabled: true,
@@ -38,18 +38,6 @@ export default class Controls extends Component {
     });
   }
 
-  getDifficulty = () => {
-    this.props.filterByDifficulty(this.state.difficulty);
-  }
-  
-  getDistance = () => {
-    this.props.filterByDistance(this.state.distance);
-  }
-
-  getParkName = () => {
-    this.props.filterByParkName(this.state.parkName);
-  }
-
   resetApplication = () => {
     this.props.toggleLandingScreen();
   }
@@ -57,6 +45,17 @@ export default class Controls extends Component {
   resetFilters = () => {
     this.props.resetAllFilters(this.state.allTrails);
   }
+
+  getFilterData = () => {
+    if (this.state.difficulty !== null) {
+      this.props.filterByDifficulty(this.state.difficulty)
+    } else if (this.state.distance !== null) {
+        this.props.filterByDistance(this.state.distance)
+      } else if (this.state.parkName !== null) {
+        this.props.filterByParkName(this.state.parkName)
+      }
+    }
+  
 
   render() {
     return (
@@ -81,7 +80,6 @@ export default class Controls extends Component {
                 })
               }
             </select>
-            <button onClick={this.getDistance} disabled={this.state.distanceDisabled}>Submit</button>
           </div>
           <div className="difficulty-select-container">
             <select onChange={this.updateDifficulty} className="difficulty-select">
@@ -99,7 +97,6 @@ export default class Controls extends Component {
                 })
               }
             </select>
-            <button onClick={this.getDifficulty} disabled={this.state.difficultyDisabled}>Submit</button>
           </div>
           <div className="park-select-container">
             <select onChange={this.updateParkName} className="park-select">
@@ -115,9 +112,9 @@ export default class Controls extends Component {
                 })
               }
             </select>
-            <button onClick={this.getParkName} disabled={this.state.parkDisabled}>Submit</button>
-          </div> 
-        <button onClick={this.resetFilters}  className="reset-filters-button">Reset Filters</button>    
+          </div>
+          <button onClick={this.getFilterData} className="apply-filters-button">Apply Filters</button> 
+          <button onClick={this.resetFilters}  className="reset-filters-button">Reset Filters</button>    
         </div>
         
         <Search searchTrails={this.props.searchTrails} 

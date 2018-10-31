@@ -67,3 +67,8 @@ $submit-button-color: lightgray;
   @extend .reset-search-button;
   margin: 0;
 }
+
+.apply-filters-button {
+  @extend .reset-search-button;
+  margin: 0;
+}
