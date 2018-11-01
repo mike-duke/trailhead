@@ -37,6 +37,7 @@ Link to Retro Log:
 - Add the ability to query over a larger dataset(state parks/international parks)
 - Allow users to have random trail selected for them on the home page based on location
 - Allow users to login and save location data, as well as track which trails they've already hiked. 
+- Adapt to mobile
 
 ## Original Assignment
 [Whateverly, Mod 2 at the Turing School of Software and Design](http://frontend.turing.io/projects/whateverly.html)
