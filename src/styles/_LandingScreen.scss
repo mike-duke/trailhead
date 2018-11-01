@@ -8,6 +8,7 @@
 
 .landing-screen h1 {
   margin: 0;
+  font-size: 2rem;
 }
 
 .landing-screen {
@@ -24,6 +25,7 @@
 .location-select {
   width: 100px;
   height: 25px;
+  font-size: 0.7rem;
 }
 
 .submit-button {
@@ -33,6 +35,7 @@
   background-color: #228B22;
   border: solid black;
   color: white;
+  font-size: 0.8rem;
 
   &:disabled {
     background: darken(#228B22, 10%)
