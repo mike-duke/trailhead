@@ -27,10 +27,12 @@ $ npm start
 ```
 
 ## Project Development Notes:
-Wireframe:
+We took as much advantage of planning time as we could, working from the wireframe below all throughout the project and utilizing a daily retro log (also linked below) as well as github issues to keep our group organized and on task. We worked mostly together, which helped keep syntax errors to a minimum and allowed to immediate feedback on design and functionality decisions. 
+
+### Wireframe:
 ![Wireframe](https://i.imgur.com/uoF51ja.png "Wireframe")
 
-Link to Retro Log:
+### Link to Retro Log:
 [Retro Log](https://docs.google.com/document/d/10tLLwkXGEzdYQxx7nyWLoGhC8pbz45YpMo4natYCZk0/edit?usp=sharing)
 
 ## Future Development and Extensions Notes:
