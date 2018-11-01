@@ -15,7 +15,7 @@ $green: rgb(34, 139, 34);
 
 .full-card {
   @extend .card;
-  height: 310px;
+  height: 375px;
   background-color: rgba($green, 0.9)
 }
 
@@ -26,7 +26,6 @@ $green: rgb(34, 139, 34);
 
 .distance-difficulty-container {
   display: flex;
-  // justify-content: space-evenly;
   justify-content: space-around;
   font-size: 20px;
 }
