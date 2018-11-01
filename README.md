@@ -11,17 +11,17 @@ Current Version:
 
 These instructions will get a copy of the project up and running on your local machine for usage and testing purposes. 
 
-clone down the directory:
+clone down the repository:
 ```
 $ git clone https://github.com/pvinthemix/trailhead.git
 ```
-cd into directory and run npm install:
 
+cd into directory and run npm install:
 ```
 $ npm install
 ```
-launch in your browser:
 
+launch in your browser:
 ```
 $ npm start
 ```
@@ -46,4 +46,3 @@ Link to Retro Log:
 Paul Vangelakos: https://github.com/pvinthemix/
 
 mike duke: https://github.com/mike-duke
-
