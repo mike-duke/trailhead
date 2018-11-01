@@ -39,7 +39,7 @@ Link to Retro Log:
 - Allow users to login and save location data, as well as track which trails they've already hiked. 
 
 ## Original Assignment
-![Whateverly, Mod 2 at the Turing School of Software and Design](http://frontend.turing.io/projects/whateverly.html)
+[Whateverly, Mod 2 at the Turing School of Software and Design](http://frontend.turing.io/projects/whateverly.html)
 
 ## Contributors
 Paul Vangelakos: https://github.com/pvinthemix/
