@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './styles/Main.scss';
+import map from './styles/images/fourmilemap_1.jpg';
 
 export default class Card extends Component {
   constructor(props) {
@@ -58,25 +59,30 @@ export default class Card extends Component {
   }
 
   render() {
+    console.log(map)
     let open = this.getOpenMessage(this.props.trail);
     let parking = this.getParkingMessage(this.props.trail);
     if (this.state.fullCard) {
       return (
         <div className="full-card" onClick={this.toggleFullCard}>
-          <h1><span className="trail-name-title">Trail:</span> {this.props.trail.trailName} </h1> 
-          <p>{open}</p>
-          <p>{parking}</p>
-          <p>Starting Elevation: <span>{(this.props.trail.startingElevationFeet).toLocaleString('en')} ft.</span></p>
-
-          <h2><span className="park-name-title">National Park: </span>{this.props.trail.parkName}</h2>
-
-          <p>
-            Established in <span>{this.state.nationalPark.yearEstablished}</span>
-          </p>
-          <p>
-            Visitors last year: <span>{(this.state.nationalPark.visitorsLastYear).toLocaleString('en')}</span>
-          </p>
-
+          <div className="info-and-image">
+            <div className="info-container">
+              <h1><span className="trail-name-title">Trail:</span> {this.props.trail.trailName} </h1> 
+              <div className="trail-info">
+                <p>{open}</p>
+                <p>{parking}</p>
+                <p>Starting Elevation: <span>{(this.props.trail.startingElevationFeet).toLocaleString('en')} ft.</span></p>
+              </div>
+              <h2 className="park-name-title">{this.props.trail.parkName} National Park</h2>
+              <div className="park-info">
+                <p>Established in <span>{this.state.nationalPark.yearEstablished}</span></p>
+                <p>Visitors last year: <span>{(this.state.nationalPark.visitorsLastYear).toLocaleString('en')}</span></p>
+              </div>
+            </div>
+              <div className="image-container">
+                <img className="map-img" src={map} alt="a map of the Four-Mile Trail in Yosemite" />
+              </div>
+          </div>
           <div className="distance-difficulty-container">
             <div className="difficulty-rating" >
               <p><span className="difficulty-rating-text">Difficulty Rating: </span>{this.props.trail.difficultyRating}</p>
@@ -90,8 +96,10 @@ export default class Card extends Component {
     } else {
       return ( 
         <div className="card" onClick={this.toggleFullCard}>
-          <h1><span className="trail-name-title">Trail:</span> {this.props.trail.trailName} </h1> 
-          <h2> <span className="park-name-title">National Park:</span> {this.props.trail.parkName} </h2> 
+          <div className="info-container">
+            <h1><span className="trail-name-title">Trail:</span> {this.props.trail.trailName} </h1> 
+            <h2 className="park-name-title">{this.props.trail.parkName} National Park</h2> 
+          </div>
           <div className="distance-difficulty-container">
             <div className="difficulty-rating" >
               <p><span className="difficulty-rating-text">Difficulty Rating: </span>{this.props.trail.difficultyRating}</p>

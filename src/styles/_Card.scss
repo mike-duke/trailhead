@@ -1,25 +1,22 @@
 $card-text-color: #FFFF00;
+$green: rgb(34, 139, 34);
 
 .card {
-  background-color: rgba(34,139,34,0.80);
+  background-color: rgba($green, 0.9);
   height: 200px;
   width: 90%;
-  border: solid 7px black;
-  margin-bottom: 10px;
-  margin-top: 10px;
+  margin: 10px 0;
   border-radius: 25px;
-  text-align: center;
-  padding: 10px;
   font-family: highway gothic;
   color: white;
-  transition: height 0.2s linear;
+  transition: all 0.2s linear;
   overflow: hidden;
 }
 
 .full-card {
   @extend .card;
-  height: 400px;
-  background-color: rgba(34,139,34,.95)
+  height: 310px;
+  background-color: rgba($green, 0.9)
 }
 
 .card:hover {
@@ -29,7 +26,8 @@ $card-text-color: #FFFF00;
 
 .distance-difficulty-container {
   display: flex;
-  justify-content: space-evenly;
+  // justify-content: space-evenly;
+  justify-content: space-around;
   font-size: 20px;
 }
 
@@ -43,4 +41,34 @@ $card-text-color: #FFFF00;
 .difficulty-rating-text
  {
   color: $card-text-color;
+}
+
+.trail-info,
+.park-info {
+  p {
+  margin: 0 0 0 30px;
+  font-weight: 600;
+  }
+}
+
+.map-img {
+  width: 100%;
+}
+
+.image-container {
+  margin: 40px 40px 0 0;
+  width: 35%;
+}
+
+.info-and-image {
+  display: flex;
+  justify-content: space-around;
+}
+
+.info-container {
+  width: 60%;
+  margin: 10px 0 0 40px;
+  h2 {
+    margin: 15px 0;
+  }
 }

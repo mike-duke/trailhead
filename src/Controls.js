@@ -60,7 +60,7 @@ export default class Controls extends Component {
   render() {
     return (
       <div className="controls-container">
-          <h1 className="location-display">{this.state.selectedLocation}</h1>
+        <h1 className="location-display">{this.state.selectedLocation}</h1>
         <div className="select-container">
           <hr />
           <h4>Number of Trails: {this.props.trails.length}</h4>
